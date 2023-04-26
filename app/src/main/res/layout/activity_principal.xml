@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/tablasbackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Principal">
+
+    <!-- Los iconos de los menús son de 300x200 pixeles -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingTop="50dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="60sp"
+                android:text="AQUI SE GENERAN PLATOS QUE SON RECOMENDACIONES" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/idiomasBtn"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="40dp"
+                android:text="IDIOMAS" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="40dp"
+                android:text="LLAMAR CAMARERO" />
+
+            <Button
+                android:id="@+id/carroBtn"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:text="VER CARRO" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/menuCarneBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/carnes"
+            android:text="CARNES" />
+
+        <Button
+            android:id="@+id/menuPescadosBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/carnes"
+            android:text="PESCADOS" />
+
+        <Button
+            android:id="@+id/menuBebidasBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/carnes"
+            android:text="BEBIDAS" />
+
+        <Button
+            android:id="@+id/menuPostresBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/carnes"
+            android:text="POSTRES" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
