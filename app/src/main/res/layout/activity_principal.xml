@@ -101,14 +101,14 @@
                 android:id="@+id/idiomasBtn"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="30dp"
                 android:text="IDIOMAS" />
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="30dp"
                 android:text="LLAMAR CAMARERO" />
 
             <Button

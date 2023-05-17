@@ -18,12 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         botonComenzar=(Button)findViewById(R.id.comenzarBtn);
 
-        botonComenzar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i=new Intent(MainActivity.this,Principal.class);
-                startActivity(i);
-            }
+        botonComenzar.setOnClickListener(v -> {
+            Intent i=new Intent(MainActivity.this,Principal.class);
+            startActivity(i);
         });
 
         View decorView = getWindow().getDecorView();
