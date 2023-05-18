@@ -1,6 +1,8 @@
 package com.example.restaurante;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,12 +13,14 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -29,22 +33,28 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Principal extends AppCompatActivity {
 
-    Button botonIdiomas,botonCarro,botonCarnes,botonBebidas,botonPostres,botonPescados;
+    String platoRecomendado="6"; //Ejemplo de plato recomendado
+    Button botonIdiomas,botonCarro,botonCarnes,botonBebidas,botonPostres,botonPescados,platoRecomendacion;
+
+    TextView nombreRecomendacion, precioRecomendacion;
+
+    String url = "http://192.168.0.15/android/registrolista.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        //Desactiva el Cors temporalmente
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            WebView webView = new WebView(this);
-            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
 
+        nombreRecomendacion=findViewById(R.id.nombreRecomendacion);
+        precioRecomendacion=findViewById(R.id.precioRecomendacion);
+        platoRecomendacion=findViewById(R.id.platoRecomendacion);
         botonIdiomas= findViewById(R.id.idiomasBtn);
         botonCarnes= findViewById(R.id.menuCarneBtn);
         botonBebidas=findViewById(R.id.menuBebidasBtn);
@@ -52,28 +62,12 @@ public class Principal extends AppCompatActivity {
         botonPescados=findViewById(R.id.menuPescadosBtn);
         botonCarro=findViewById(R.id.carroBtn);
 
-        botonIdiomas.setOnClickListener(v -> {
-            Log.d("TAG", "Se ha ejecutado el método");
-            // URL de la solicitud
-            String url = "http://127.0.0.1/android/registro.php";
+        platoRecomendacion.setOnClickListener(v -> {
+            String nombre = "pepinillos"; // Obtén el nombre del plato que deseas mostrar
+            String precio = "Precio del plato"; // Obtén el precio del plato que deseas mostrar
 
-            // Solicitud GET
-            StringRequest solicitud = new StringRequest(Request.Method.GET, url,
-                    response -> {
-                        Log.d("TAG", response); // Imprimir el resultado en la consola de registro
-                        Toast.makeText(getApplicationContext(), "Salió bien", Toast.LENGTH_SHORT).show();
-                    }, error -> {
-                        Log.e("TAG", "Error en la solicitud: " + error.getMessage()); // Imprimir un mensaje de error en la consola de registro
-                        Toast.makeText(getApplicationContext(), "Salió mal", Toast.LENGTH_SHORT).show();
-                    });
-
-            // Agregar la solicitud a la cola de solicitudes de Volley
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            requestQueue.add(solicitud);
-            Log.d("TAG", "Se ha llegado al final del método");
-            //new DownloadTask().execute("http://127.0.0.1/android/registro.php");
-            //Intent i=new Intent(Principal.this,MainActivity.class);
-            //startActivity(i);
+            PlatoFragment popupFragment = PlatoFragment.newInstance(nombre, precio);
+            popupFragment.show(getSupportFragmentManager(), "popup");
         });
 
         botonCarnes.setOnClickListener(v -> {
@@ -103,35 +97,49 @@ public class Principal extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
-    }
-    /*
-    private class DownloadTask extends AsyncTask<String, Void, String> {
-        protected String doInBackground(String... urls) {
-            String result = "";
+
+        RequestQueue queue = Volley.newRequestQueue(Principal.this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
+
             try {
-                URL url = new URL(urls[0]);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
-                InputStream inputStream = conn.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String line = "";
-                while ((line = bufferedReader.readLine()) != null) {
-                    result += line;
+                String respuesta= String.valueOf(response);
+                JSONObject jsonObject = new JSONObject(respuesta);
+                Iterator<String> keys = jsonObject.keys();
+
+                List<Plato> listaPlatos = new ArrayList<>();
+
+                while (keys.hasNext()) {
+                    String key = keys.next();
+                    JSONObject value = jsonObject.getJSONObject(key);
+
+                    Plato plato = new Plato(value.getString("id"), value.getString("nombre"), value.getString("precio"));
+                    listaPlatos.add(plato);
                 }
-                inputStream.close();
-                bufferedReader.close();
-                conn.disconnect();
-            } catch (Exception e) {
+
+                for (Plato plato : listaPlatos) {
+                    Log.d("TAG", "ID: " + plato.get_Id() + ", Nombre: " + plato.get_Nombre() + ", Precio: " + plato.get_Precio());
+                }
+
+                for (Plato plato : listaPlatos) {
+                    // Crea un Bundle para pasar los valores al fragmento
+                    if(plato.get_Id().equals(platoRecomendado)){
+                        nombreRecomendacion.setText(plato.get_Nombre());
+                        precioRecomendacion.setText((plato.get_Precio()));
+                        platoRecomendacion.setText(plato.get_Id());
+                    }
+                }
+
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return result;
+        }, error -> {
+            // below line is use to display a toast message along with our error.
+            Toast.makeText(Principal.this, "Error de conexión..", Toast.LENGTH_LONG).show();
+        });
+        queue.add(jsonObjectRequest);
 
-        }
 
-        protected void onPostExecute(String result) {
-            // Aquí puedes actualizar la interfaz de usuario con los datos recibidos
-            // por ejemplo, actualizar un ListView o TextView
-        }
-    }*/
+    }
 }
 

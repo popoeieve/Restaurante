@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+//Clase plato para el manejo de información
 public class Plato extends Fragment {
     private String id;
     private String nombre;

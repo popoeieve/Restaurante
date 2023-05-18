@@ -78,7 +78,7 @@ public class Menus extends AppCompatActivity {
                 }
 
                 for (Plato plato : listaPlatos) {
-                    PlatoFragment fragment = new PlatoFragment();
+                    PlatoMenuFragment fragment = new PlatoMenuFragment();
                     // Crea un Bundle para pasar los valores al fragmento
                     Bundle args = new Bundle();
                     args.putString("id", plato.get_Id());
@@ -105,8 +105,4 @@ public class Menus extends AppCompatActivity {
 
     }
 
-    public void mostrarPlato(View view){
-        PlatoFragment popupFragment = new PlatoFragment();
-        popupFragment.show(getSupportFragmentManager(), "popup");
-    }
 }

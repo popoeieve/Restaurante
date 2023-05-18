@@ -17,6 +17,7 @@ import android.widget.Toast;
  * Use the {@link PlatoMenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+//Clase que maneja los platos que aparecen en las distintas listas productos (menús y carro)
 public class PlatoMenuFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -68,21 +69,17 @@ public class PlatoMenuFragment extends Fragment {
         View root= inflater.inflate(R.layout.fragment_plato_menu, container, false);
 
         botonCarro=root.findViewById(R.id.botonFragmentPlatoMenu);
-        botonCarro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // obtener el id del plato
-                String id = getArguments().getString("id");
-                // mostrar un Toast con el mensaje deseado
-                Toast.makeText(getContext(), "Pulsaste el producto " + id, Toast.LENGTH_SHORT).show();
+        botonCarro.setOnClickListener(view -> {
+            String nombre = getArguments().getString("nombre");
+            String precio = getArguments().getString("precio");
 
-                //PlatoMenuFragment platoNoMenu=new PlatoMenuFragment();
-            }
+            PlatoFragment dialogFragment = PlatoFragment.newInstance(nombre, precio);
+            dialogFragment.show(getFragmentManager(), "plato_dialog");
+
         });
 
         return root;
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

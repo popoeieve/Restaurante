@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imagenPopup"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
@@ -16,6 +16,7 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/textNombrePopup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Título del panel emergente"
@@ -23,12 +24,13 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/textPrecioPopup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contenido del panel emergente" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/botonAgregarCarroPopup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AGREGAR AL CARRO" />
