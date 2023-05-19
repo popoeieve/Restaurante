@@ -7,8 +7,11 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import java.io.Serializable;
+
 //Clase plato para el manejo de información
-public class Plato extends Fragment {
+public class Plato extends Fragment implements Serializable {
     private String id;
     private String nombre;
     private String precio;
