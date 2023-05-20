@@ -65,8 +65,9 @@ public class Principal extends AppCompatActivity {
         platoRecomendacion.setOnClickListener(v -> {
             String nombre = "pepinillos"; // Obtén el nombre del plato que deseas mostrar
             String precio = "Precio del plato"; // Obtén el precio del plato que deseas mostrar
+            String id="99";
 
-            PlatoFragment popupFragment = PlatoFragment.newInstance(nombre, precio);
+            PlatoFragment popupFragment = PlatoFragment.newInstance(id,nombre, precio);
             popupFragment.show(getSupportFragmentManager(), "popup");
         });
 

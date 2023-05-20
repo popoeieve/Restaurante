@@ -13,11 +13,10 @@ import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PlatoMenuFragment#newInstance} factory method to
+ * Use the {@link PlatoCarroFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-//Clase que maneja los platos que aparecen en las distintas listas productos (menús y carro)
-public class PlatoMenuFragment extends Fragment {
+public class PlatoCarroFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +27,9 @@ public class PlatoMenuFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PlatoMenuFragment() {
+
+
+    public PlatoCarroFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +39,11 @@ public class PlatoMenuFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PlatoMenuFragment.
+     * @return A new instance of fragment PlatoCarroFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlatoMenuFragment newInstance(String param1, String param2) {
-        PlatoMenuFragment fragment = new PlatoMenuFragment();
+    public static PlatoCarroFragment newInstance(String param1, String param2) {
+        PlatoCarroFragment fragment = new PlatoCarroFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,16 +60,16 @@ public class PlatoMenuFragment extends Fragment {
         }
     }
 
-    private Button botonCarro;
+    private Button botonCarrito;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.fragment_plato_menu, container, false);
+        View root= inflater.inflate(R.layout.fragment_plato_carro, container, false);
 
-        botonCarro=root.findViewById(R.id.botonFragmentPlatoMenu);
-        botonCarro.setOnClickListener(view -> {
+        botonCarrito=root.findViewById(R.id.botonFragmentPlatoCarro);
+        botonCarrito.setOnClickListener(view -> {
             String nombre = getArguments().getString("nombre");
             String precio = getArguments().getString("precio");
             String id = getArguments().getString("id");
@@ -80,13 +81,14 @@ public class PlatoMenuFragment extends Fragment {
 
         return root;
     }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TextView textViewNombre = getView().findViewById(R.id.text1Fragment);
-        TextView textViewPrecio = getView().findViewById(R.id.text2Fragment);
-        Button button = getView().findViewById(R.id.botonFragmentPlatoMenu);
+        TextView textViewNombre = getView().findViewById(R.id.text1FragmentCarro);
+        TextView textViewPrecio = getView().findViewById(R.id.text2FragmentCarro);
+        Button button = getView().findViewById(R.id.botonFragmentPlatoCarro);
 
         textViewNombre.setText(getArguments().getString("nombre"));
         textViewPrecio.setText(getArguments().getString("precio"));

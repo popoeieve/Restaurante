@@ -1,6 +1,8 @@
 package com.example.restaurante;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +30,22 @@ public class Carro extends AppCompatActivity {
             Intent i=new Intent(Carro.this,MainActivity.class);
             startActivity(i);
         });
+
+        for (Plato plato : ListaCarrito.getInstance().getPlatos()) {
+            PlatoCarroFragment fragment = new PlatoCarroFragment();
+            // Crea un Bundle para pasar los valores al fragmento
+            Bundle args = new Bundle();
+            args.putString("id", plato.get_Id());
+            args.putString("nombre", plato.get_Nombre());
+            args.putString("precio", "precio: "+plato.get_Precio());
+            fragment.setArguments(args);
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            fragmentTransaction.add(R.id.listaPlatosCarro, fragment);
+            fragmentTransaction.commit();
+        }
 
 
 

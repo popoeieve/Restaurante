@@ -15,6 +15,7 @@ public class PlatoFragment extends DialogFragment {
 
     private String nombre;
     private String precio;
+    private String id;
     Button botonSalir;
 
     @NonNull
@@ -26,6 +27,7 @@ public class PlatoFragment extends DialogFragment {
         // Obtener los datos pasados como argumentos
         nombre = getArguments().getString("nombre");
         precio = getArguments().getString("precio");
+        id=getArguments().getString("id");
 
         TextView textViewNombre = view.findViewById(R.id.textNombrePopup);
         TextView textViewPrecio = view.findViewById(R.id.textPrecioPopup);
@@ -37,6 +39,15 @@ public class PlatoFragment extends DialogFragment {
         botonSalir.setOnClickListener(v -> {
             dismiss();
         });
+        Button botonAgregarCarroPopup = view.findViewById(R.id.botonAgregarCarroPopup);
+        botonAgregarCarroPopup.setOnClickListener(v -> {
+            // Crear un nuevo objeto Plato con los datos actuales
+            Plato plato = new Plato(id,nombre, precio);
+            // Agregar el plato a la lista en PlatoSingleton
+            ListaCarrito.getInstance().agregarPlato(plato);
+            // Cerrar el diálogo
+            dismiss();
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view);
@@ -44,9 +55,10 @@ public class PlatoFragment extends DialogFragment {
         return builder.create();
     }
 
-    public static PlatoFragment newInstance(String nombre, String precio) {
+    public static PlatoFragment newInstance(String id,String nombre, String precio) {
         PlatoFragment fragment = new PlatoFragment();
         Bundle args = new Bundle();
+        args.putString("id",id);
         args.putString("nombre", nombre);
         args.putString("precio", precio);
         fragment.setArguments(args);

@@ -23,8 +23,8 @@ public class Plato extends Fragment implements Serializable {
         View view = getView();
         // Obtiene referencias a los elementos de la vista
         TextView textViewNombre = view.findViewById(R.id.text1Fragment);
-        TextView textViewPrecio = view.findViewById(R.id.text2Fragment);
-        Button button = view.findViewById(R.id.botonFragmentPlatoMenu);
+        TextView textViewPrecio = view.findViewById(R.id.text2FragmentCarro);
+        Button button = view.findViewById(R.id.botonFragmentPlatoCarro);
         // Configura los valores de los elementos de la vista
         textViewNombre.setText(getArguments().getString("nombre"));
         textViewPrecio.setText(getArguments().getString("precio"));
