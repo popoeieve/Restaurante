@@ -12,8 +12,8 @@ tools:context=".PlatoMenuFragment">
 
         <Button
             android:id="@+id/botonFragmentPlatoMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_weight="1"
             android:background="@drawable/plato"
             android:onClick="mostrarPlato"
