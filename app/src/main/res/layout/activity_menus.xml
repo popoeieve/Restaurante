@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tablasbackground"
+    android:background="@drawable/wallpaperfastfood"
     android:orientation="vertical"
     tools:context=".Menus">
 
@@ -37,26 +37,30 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:layoutDirection="rtl"
             android:paddingLeft="50dp">
 
             <Button
                 android:id="@+id/idiomasBtn"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="40dp"
-                android:text="IDIOMAS" />
+                android:background="@drawable/botonidioma"
+                />
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_marginBottom="40dp"
+                android:background="@drawable/boton"
                 android:text="LLAMAR CAMARERO" />
 
             <Button
                 android:id="@+id/carroBtn"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
+                android:background="@drawable/boton"
                 android:text="VER CARRO" />
         </LinearLayout>
     </LinearLayout>
@@ -65,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
+        android:background="#C60C17"
         android:gravity="bottom"
         android:orientation="horizontal">
 
@@ -77,33 +82,33 @@
             android:id="@+id/menuCarneBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
             android:background="@drawable/platoreducido"
-            android:text="CARNES" />
+            android:text="CARNES"
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/menuPescadosBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
             android:background="@drawable/platoreducido"
-            android:text="PESCADOS" />
+            android:text="PESCADOS"
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/menuBebidasBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
             android:background="@drawable/platoreducido"
-            android:text="BEBIDAS" />
+            android:text="BEBIDAS"
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/menuPostresBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
             android:background="@drawable/platoreducido"
-            android:text="POSTRES" />
+            android:text="POSTRES"
+            android:textSize="40sp" />
 
         <View
             android:layout_width="0dp"

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/wallpaperfastfood"
         android:orientation="horizontal"
         android:paddingLeft="50dp"
         android:paddingTop="50dp"
@@ -27,33 +28,37 @@
                 android:id="@+id/listaPlatosCarro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"/>
+                android:orientation="vertical" />
         </ScrollView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layoutDirection="rtl"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/idiomasBtn"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="40dp"
-                android:text="IDIOMAS" />
+                android:background="@drawable/botonidioma"
+                />
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_marginBottom="40dp"
+                android:background="@drawable/boton"
                 android:text="LLAMAR CAMARERO" />
 
             <Button
                 android:id="@+id/carroBtn"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
+                android:background="@drawable/boton"
                 android:text="PAGAR AQUI" />
         </LinearLayout>
     </LinearLayout>
@@ -61,6 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C60C17"
         android:layoutDirection="rtl"
         android:orientation="horizontal"
         android:paddingLeft="50dp"
@@ -68,8 +74,9 @@
 
         <Button
             android:id="@+id/carroVolverBtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:background="@drawable/botonvolver"
             android:text="VOLVER A MENÚ" />
 
         <TextView
