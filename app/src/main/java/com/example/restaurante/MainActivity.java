@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button botonComenzar;
 
+    Button botonConfiguracion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         botonComenzar.setOnClickListener(v -> {
             Intent i=new Intent(MainActivity.this,Principal.class);
             startActivity(i);
+        });
+
+        botonConfiguracion = findViewById(R.id.botonConfiguracion);
+        botonConfiguracion.setOnClickListener(v -> {
+            // Crea una instancia del fragmento de configuración
+            MenuConfiguracion dialogFragment = new MenuConfiguracion();
+            dialogFragment.show(getSupportFragmentManager(), "MenuConfiguracion");
         });
 
         View decorView = getWindow().getDecorView();

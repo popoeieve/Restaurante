@@ -16,7 +16,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textNombrePopup"
+            android:id="@+id/textTituloConf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Título del panel emergente"
@@ -24,19 +24,19 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textPrecioPopup"
+            android:id="@+id/lblNumeroMesa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contenido del panel emergente" />
 
         <Button
-            android:id="@+id/botonAgregarCarroPopup"
+            android:id="@+id/botonGuardarSalir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AGREGAR AL CARRO" />
 
         <Button
-            android:id="@+id/botonCerrar"
+            android:id="@+id/botonSalir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cerrar"/>

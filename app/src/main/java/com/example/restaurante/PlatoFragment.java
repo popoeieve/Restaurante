@@ -29,17 +29,17 @@ public class PlatoFragment extends DialogFragment {
         precio = getArguments().getString("precio");
         id=getArguments().getString("id");
 
-        TextView textViewNombre = view.findViewById(R.id.textNombrePopup);
-        TextView textViewPrecio = view.findViewById(R.id.textPrecioPopup);
+        TextView textViewNombre = view.findViewById(R.id.textTituloConf);
+        TextView textViewPrecio = view.findViewById(R.id.lblNumeroMesa);
 
         textViewNombre.setText(nombre);
         textViewPrecio.setText(precio);
 
-        botonSalir = view.findViewById(R.id.botonCerrar);
+        botonSalir = view.findViewById(R.id.botonSalir);
         botonSalir.setOnClickListener(v -> {
             dismiss();
         });
-        Button botonAgregarCarroPopup = view.findViewById(R.id.botonAgregarCarroPopup);
+        Button botonAgregarCarroPopup = view.findViewById(R.id.botonGuardarSalir);
         botonAgregarCarroPopup.setOnClickListener(v -> {
             // Crear un nuevo objeto Plato con los datos actuales
             Plato plato = new Plato(id,nombre, precio);

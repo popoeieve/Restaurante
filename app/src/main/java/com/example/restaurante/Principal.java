@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,7 +41,9 @@ import java.util.List;
 
 public class Principal extends AppCompatActivity {
 
-    String platoRecomendado="6"; //Ejemplo de plato recomendado
+
+
+    //String platoRecomendado="6"; //Ejemplo de plato recomendado
     Button botonIdiomas,botonCarro,botonCarnes,botonBebidas,botonPostres,botonPescados,platoRecomendacion;
 
     TextView nombreRecomendacion, precioRecomendacion;
@@ -50,6 +54,12 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
+
+// Obtén los valores de las variables almacenadas
+        int platoRecomendadoInt = sharedPreferences.getInt("platoPromocional", 0);
+        String platoRecomendado = String.valueOf(platoRecomendadoInt);
 
 
         nombreRecomendacion=findViewById(R.id.nombreRecomendacion);
@@ -62,14 +72,14 @@ public class Principal extends AppCompatActivity {
         botonPescados=findViewById(R.id.menuPescadosBtn);
         botonCarro=findViewById(R.id.carroBtn);
 
-        platoRecomendacion.setOnClickListener(v -> {
-            String nombre = "pepinillos"; // Obtén el nombre del plato que deseas mostrar
-            String precio = "Precio del plato"; // Obtén el precio del plato que deseas mostrar
-            String id="99";
 
-            PlatoFragment popupFragment = PlatoFragment.newInstance(id,nombre, precio);
-            popupFragment.show(getSupportFragmentManager(), "popup");
+        platoRecomendacion.setOnClickListener(v -> {
+            // Crea una instancia del fragmento de configuración
+            PlatoFragment dialogFragment = new PlatoFragment();
+            //PlatoFragment.show(getSupportFragmentManager(), "plato_dialog");
         });
+
+
 
         botonCarnes.setOnClickListener(v -> {
             Intent j=new Intent(Principal.this,Menus.class);

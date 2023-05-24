@@ -52,10 +52,11 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/botonConfiguracion"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_weight="0"
             android:layout_marginRight="70dp"
+            android:layout_weight="0"
             android:background="@drawable/botonconfiguracion" />
     </LinearLayout>
 
