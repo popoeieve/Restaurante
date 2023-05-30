@@ -26,15 +26,16 @@
 
             <Button
                 android:id="@+id/platoRecomendacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:background="@drawable/plato"
-                android:text="Button" />
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_gravity="center|fill_horizontal"
                 android:orientation="vertical">
 
@@ -47,29 +48,34 @@
                     android:id="@+id/nombreRecomendacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre artículo"
-                    android:textSize="40sp" />
+                    android:fontFamily="@font/hotpizza"
+                    android:text="Nombre:"
+                    android:textSize="40sp"
+                     />
 
                 <TextView
                     android:id="@+id/descripcionRecomendacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Descripción:"
-                    android:textSize="40sp" />
+                    android:fontFamily="@font/hotpizza"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/lblPrecioRecomendacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Precio:"
+                    android:fontFamily="@font/hotpizza"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/precioRecomendacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precio:"
-                    android:textSize="40sp" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="99,99€"
-                    android:textSize="40sp" />
+                    android:fontFamily="@font/hotpizza"
+                    android:textSize="50sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -102,10 +108,13 @@
                 />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/botonLlamarCamareroPrincipal"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
                 android:layout_marginBottom="30dp"
+                android:fontFamily="@font/hotpizza"
+                android:textColor="#EAE5E3"
+                android:textSize="35sp"
                 android:background="@drawable/boton"
                 android:text="LLAMAR CAMARERO" />
 
@@ -113,6 +122,9 @@
                 android:id="@+id/carroBtn"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
+                android:fontFamily="@font/hotpizza"
+                android:textColor="#EAE5E3"
+                android:textSize="35sp"
                 android:background="@drawable/boton"
                 android:text="VER CARRO" />
         </LinearLayout>
@@ -132,32 +144,44 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/carnes"
-            android:text="CARNES" />
+            android:background="@drawable/hamburguesasprincipal"
+            android:fontFamily="@font/hotpizza"
+            android:text="HAMBURGUESAS"
+            android:textColor="#EAE5E3"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/menuPescadosBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/carnes"
-            android:text="PESCADOS" />
+            android:background="@drawable/complementosprincipal"
+            android:fontFamily="@font/hotpizza"
+            android:text="COMPLEMENTOS"
+            android:textColor="#EAE5E3"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/menuBebidasBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/carnes"
-            android:text="BEBIDAS" />
+            android:background="@drawable/refrescosprincipal"
+            android:fontFamily="@font/hotpizza"
+            android:text="BEBIDAS"
+            android:textColor="#EAE5E3"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/menuPostresBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/carnes"
-            android:text="POSTRES" />
+            android:background="@drawable/postresprincipal"
+            android:fontFamily="@font/hotpizza"
+            android:text="POSTRES"
+            android:textColor="#EAE5E3"
+            android:textSize="30sp" />
 
     </LinearLayout>
 </LinearLayout>

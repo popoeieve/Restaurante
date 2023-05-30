@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background">
 
     <ImageView
         android:id="@+id/imagenPopup"
@@ -22,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="CONFIGURACIÓN"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -37,6 +39,7 @@
                 android:layout_weight="1"
                 android:ems="5"
                 android:inputType="number"
+                android:textColor="@color/white"
                 android:text="99"
                 android:textAlignment="center" />
 
@@ -44,6 +47,7 @@
                 android:id="@+id/lblNumeroMesa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="Número de mesa"
                 android:textSize="20sp" />
 
@@ -62,6 +66,7 @@
                 android:layout_weight="1"
                 android:ems="5"
                 android:inputType="number"
+                android:textColor="@color/white"
                 android:text="99"
                 android:textAlignment="center" />
 
@@ -69,6 +74,7 @@
                 android:id="@+id/lblPlatoRecomend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="Plato recomendado"
                 android:textSize="20sp" />
 

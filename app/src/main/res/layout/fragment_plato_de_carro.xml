@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/dialog_background"
+    android:padding="40dp"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imagenPopup"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textTituloConf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título del panel emergente"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="35sp"
+            />
+        <TextView
+            android:id="@+id/ingredientesCarro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título del panel emergente"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="25sp"
+            />
+
+        <TextView
+            android:id="@+id/lblNumeroMesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="99"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="70sp"
+            />
+
+        <Button
+            android:id="@+id/botonEliminarCarro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:fontFamily="@font/hotpizza"
+            android:background="@drawable/boton_personalizado"
+            android:layout_margin="10dp"
+            android:textSize="25sp"
+            android:text="ELIMINAR PLATO" />
+
+        <Button
+            android:id="@+id/botonSalir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:fontFamily="@font/hotpizza"
+            android:background="@drawable/boton_personalizado"
+            android:layout_margin="10dp"
+            android:textSize="25sp"
+            android:text="Cerrar"/>
+
+    </LinearLayout>
+
+</LinearLayout>

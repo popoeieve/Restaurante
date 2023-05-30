@@ -1,5 +1,6 @@
 package com.example.restaurante;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -72,14 +73,19 @@ public class PlatoMenuFragment extends Fragment {
             String nombre = getArguments().getString("nombre");
             String precio = getArguments().getString("precio");
             String id = getArguments().getString("id");
-
-            PlatoFragment dialogFragment = PlatoFragment.newInstance(id,nombre, precio);
+            int cantidad=getArguments().getInt("cantidad");
+            String ingredientes=getArguments().getString("ingredientes");
+            String descripcion=getArguments().getString("descripcion");
+            String alergenos=getArguments().getString("alergenos");
+            PlatoFragment dialogFragment = PlatoFragment.newInstance(id,nombre,precio,cantidad,ingredientes,descripcion,alergenos);
             dialogFragment.show(getFragmentManager(), "plato_dialog");
 
         });
 
         return root;
     }
+
+    //Metodo que recoge identifica las vistas y les pasa los argumentos recogidos
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -87,9 +93,16 @@ public class PlatoMenuFragment extends Fragment {
         TextView textViewNombre = getView().findViewById(R.id.text1Fragment);
         TextView textViewPrecio = getView().findViewById(R.id.text2Fragment);
         Button button = getView().findViewById(R.id.botonFragmentPlatoMenu);
+        TextView textViewDescripcion=getView().findViewById(R.id.textDescripcion);
 
         textViewNombre.setText(getArguments().getString("nombre"));
-        textViewPrecio.setText(getArguments().getString("precio"));
-        button.setText(getArguments().getString("id"));
+        textViewPrecio.setText(getArguments().getString("precio")+" E");
+        textViewDescripcion.setText(getArguments().getString("descripcion"));
+        //Creo el nombre de la imagen
+        String nombreImagen="a"+getArguments().getString("id");
+        //Cargo en un Drawable el archivo de imagen
+        Drawable imagen = requireContext().getResources().getDrawable(getResources().getIdentifier(nombreImagen, "drawable", requireContext().getPackageName()));
+        button.setBackground(imagen);
+        button.setText("");
     }
 }

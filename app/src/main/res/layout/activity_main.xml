@@ -65,6 +65,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:fontFamily="@font/hotpizza"
+        android:textColor="#EAE5E3"
+        android:textSize="50sp"
         android:background="@android:drawable/zoom_plate"
         android:text="BIENVENIDO AL RESTAURANTE\n\nPULSE EN CUALQUIER PARTE PARA COMENZAR" />
 </LinearLayout>

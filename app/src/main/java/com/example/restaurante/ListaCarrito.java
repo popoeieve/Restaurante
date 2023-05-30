@@ -29,6 +29,7 @@ public class ListaCarrito {
     public void eliminarPlato(Plato plato) {
         platos.remove(plato);
     }
+
     /* PARA AGREGAR PLATOS A LA LISTA
     Plato plato = new Plato("1", "Nombre del plato", "Precio del plato");
     ListaCarrito.getInstance().agregarPlato(plato);*/

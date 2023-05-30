@@ -1,5 +1,6 @@
 package com.example.restaurante;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,11 @@ import java.io.Serializable;
 
 //Clase plato para el manejo de información
 public class Plato extends Fragment implements Serializable {
-    private String id;
-    private String nombre;
-    private String precio;
+
+    private String id,nombre,precio,tipo,ingredientes,descripcion,alergenos;
+    private int cantidad;
+
+
     @Nullable
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -32,10 +35,16 @@ public class Plato extends Fragment implements Serializable {
     }
 
 
-    public Plato(String id, String nombre, String precio) {
+    public Plato(String id, String nombre, String precio,int cantidad,String tipo,String ingredientes,String descripcion,String alergenos) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.cantidad= cantidad;
+        this.tipo=tipo;
+        this.ingredientes=ingredientes;
+        this.descripcion=descripcion;
+        this.alergenos=alergenos;
+
     }
 
     public String get_Id() {
@@ -50,5 +59,20 @@ public class Plato extends Fragment implements Serializable {
         return precio;
     }
 
+    public String get_tipo(){return tipo;}
+
+    public String get_Ingredientes(){return ingredientes;}
+
+    public String get_Descripcion(){return descripcion;}
+
+    public String get_Alergenos(){return alergenos;}
+
+    public int get_Cantidad() {
+        return cantidad;
+    }
+
+    public void set_Cantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
 }

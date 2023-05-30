@@ -16,12 +16,13 @@
             android:layout_height="300dp"
             android:background="@drawable/plato"
             android:onClick="mostrarPlato"
-            android:text="Button" />
+            android:text="" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="5"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -29,32 +30,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Nombre artículo"
-                android:textSize="40sp" />
+                android:fontFamily="@font/hotpizza"
+                android:textSize="50sp"
+                />
 
             <TextView
                 android:id="@+id/text2FragmentCarro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Descripción:"
+                android:fontFamily="@font/hotpizza"
                 android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Precio:"
-                android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="99,99€"
-                android:textSize="40sp" />
 
         </LinearLayout>
 
@@ -66,28 +54,30 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/botonMenosCarro"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:layout_weight="1"
-                android:text="MÁS" />
+                android:background="@drawable/botonmenos" />
 
             <TextView
-                android:id="@+id/editTextNumber"
+                android:id="@+id/cantidadCarro"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:ems="2"
+                android:fontFamily="@font/hotpizza"
+                android:textSize="60sp"
                 android:textIsSelectable="false"
                 android:text="0" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/botonMasCarro"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
                 android:layout_weight="1"
-                android:text="MenOS" />
+                android:background="@drawable/botonmas" />
         </LinearLayout>
 
         <TextView
@@ -98,6 +88,8 @@
             android:layout_weight="0.5"
             android:ems="10"
             android:textIsSelectable="false"
+            android:fontFamily="@font/hotpizza"
+            android:textSize="50sp"
             android:text="Total:" />
 
     </LinearLayout>

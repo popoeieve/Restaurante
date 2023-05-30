@@ -6,7 +6,7 @@ android:layout_height="match_parent"
 tools:context=".PlatoMenuFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -17,41 +17,42 @@ tools:context=".PlatoMenuFragment">
             android:layout_weight="1"
             android:background="@drawable/plato"
             android:onClick="mostrarPlato"
-            android:text="Button" />
+            android:text="" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="99"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/text1Fragment"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
+                android:fontFamily="@font/hotpizza"
+                android:textSize="50sp"
+                android:gravity="center"
                 android:text="Nombre artículo" />
 
             <TextView
+                android:id="@+id/textDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hotpizza"
+                android:gravity="center"
+                android:text="Descripcion"
+                android:textSize="30sp" />
+
+            <TextView
                 android:id="@+id/text2Fragment"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
-                android:text="Descripción:" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="40sp"
-                android:text="Precio:" />
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="40sp"
-                android:text="99,99€" />
+                android:fontFamily="@font/hotpizza"
+                android:textSize="50sp"
+                android:gravity="center"
+                android:text="99:" />
 
         </LinearLayout>
 

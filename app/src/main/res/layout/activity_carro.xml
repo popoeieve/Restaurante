@@ -47,17 +47,23 @@
                 />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/botonLlamarCamareroCarro"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
+                android:fontFamily="@font/hotpizza"
+                android:textColor="#EAE5E3"
+                android:textSize="30sp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/boton"
                 android:text="LLAMAR CAMARERO" />
 
             <Button
-                android:id="@+id/carroBtn"
+                android:id="@+id/botonPagarAqui"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
+                android:fontFamily="@font/hotpizza"
+                android:textColor="#EAE5E3"
+                android:textSize="35sp"
                 android:background="@drawable/boton"
                 android:text="PAGAR AQUI" />
         </LinearLayout>
@@ -76,16 +82,34 @@
             android:id="@+id/carroVolverBtn"
             android:layout_width="150dp"
             android:layout_height="120dp"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="24sp"
             android:background="@drawable/botonvolver"
-            android:text="VOLVER A MENÚ" />
+            android:text="VOLVER A MENU" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/totalFinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TOTAL: 200€"
-            android:textSize="40sp" />
+            android:gravity="left"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="60sp"
+            android:text="200"
+             />
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:fontFamily="@font/hotpizza"
+            android:textColor="#EAE5E3"
+            android:textSize="40sp"
+            android:text="TOTAL: "
+            />
     </LinearLayout>
 
 </LinearLayout>
