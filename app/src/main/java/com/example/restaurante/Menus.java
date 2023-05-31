@@ -31,7 +31,7 @@ public class Menus extends AppCompatActivity {
 
     Button botonIdiomas,botonCarro,botonLlamarCamareroMenus,botonMenuHamburguesa,botonMenuComplemento,botonMenuBebida,botonMenuPostre;
 
-    String url = "http://192.168.0.115/android/registrolista.php";
+    String url = "http://192.168.0.15/android/registrolista.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

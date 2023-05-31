@@ -91,7 +91,7 @@ public class PlatoCarroFragment extends Fragment {
             for (Plato plato : platos) {
                 if (plato.get_Id().equals(id)) {
                     // El plato ya existe en el carrito
-                    Log.d("ListaCarrito", "Plato repetido "+plato.get_Cantidad()+" veces");
+                    Log.d("ListaCarrito", "Plato repetido: "+plato.get_Nombre()+", "+plato.get_Cantidad()+" veces");
                     plato.set_Cantidad(plato.get_Cantidad()+1);
                     Log.d("ListaCarrito", "Añado uno, ahora está repetido "+plato.get_Cantidad()+" veces");
                     String precioTemp = plato.get_Precio();
@@ -113,38 +113,35 @@ public class PlatoCarroFragment extends Fragment {
             ListaCarrito listaCarrito = ListaCarrito.getInstance();
             List<Plato> platos = listaCarrito.getPlatos();
             String id=getArguments().getString("id");
-            for (Plato plato : platos) {
+            Iterator<Plato> iterator = platos.iterator();
+            while (iterator.hasNext()) {
+                Plato plato = iterator.next();
                 if (plato.get_Id().equals(id)) {
-                    if(plato.get_Cantidad()<=1)
-                    {
-                        Iterator<Plato> iterator = platos.iterator();
-                        while (iterator.hasNext()) {
-                            plato = iterator.next();
-                            if (plato.get_Id().equals(id)) {
-                                iterator.remove(); // Elimina el plato de la lista carro
-                                // Ejecutar el método del activity desde este fragmento
-                                if (getActivity() instanceof Carro) {
-                                    Carro actividad = (Carro) getActivity();
-                                    actividad.reiniciarCarro();
-                                }
-                                break;
-                            }
+                    if (plato.get_Cantidad() <= 1) {
+                        iterator.remove(); // Elimina el plato de la lista carro
+                        Log.d("ListaCarrito", "Plato : " + plato.get_Nombre() + ", " + plato.get_Cantidad() + " veces, listo para ser eliminado");
+                        Log.d("ListaCarrito", "Plato : " + plato.get_Nombre() + " eliminado");
+                        // Ejecutar el método del activity desde este fragmento
+                        if (getActivity() instanceof Carro) {
+                            Carro actividad = (Carro) getActivity();
+                            actividad.reiniciarCarro();
                         }
-                }else{
-                    // El plato ya existe en el carrito
-                    Log.d("ListaCarrito", "Plato repetido "+plato.get_Cantidad()+" veces");
-                    plato.set_Cantidad(plato.get_Cantidad()-1);
-                    Log.d("ListaCarrito", "Elimino uno, ahora está repetido "+plato.get_Cantidad()+" veces");
-                    String precioTemp = plato.get_Precio();
-                    int cantidadTemp=plato.get_Cantidad();
-                    int totalPLato=Integer.parseInt(precioTemp)*cantidadTemp;
-                    textTotal.setText("Precio: "+totalPLato);
-                    cantCarro.setText(""+cantidadTemp);
-                    Log.d("actualizado", "Precio de plato actualizado CANTIDAD: "+ cantidadTemp +" TOTAL: "+totalPLato);
-                    Carro actividad = (Carro) getActivity();
-                    actividad.reiniciarCarro();
-                    break; // Salir del bucle si se encuentra un plato repetido
-                }
+                        break;
+                    } else {
+                        // El plato ya existe en el carrito
+                        Log.d("ListaCarrito", "Plato repetido " + plato.get_Cantidad() + " veces");
+                        plato.set_Cantidad(plato.get_Cantidad() - 1);
+                        Log.d("ListaCarrito", "Elimino uno, ahora está repetido " + plato.get_Cantidad() + " veces");
+                        String precioTemp = plato.get_Precio();
+                        int cantidadTemp = plato.get_Cantidad();
+                        int totalPLato = Integer.parseInt(precioTemp) * cantidadTemp;
+                        textTotal.setText("Precio: " + totalPLato);
+                        cantCarro.setText("" + cantidadTemp);
+                        Log.d("actualizado", "Precio de plato actualizado CANTIDAD: " + cantidadTemp + " TOTAL: " + totalPLato);
+                        Carro actividad = (Carro) getActivity();
+                        actividad.reiniciarCarro();
+                        break; // Salir del bucle si se encuentra un plato repetido
+                    }
                 }
             }
         });
