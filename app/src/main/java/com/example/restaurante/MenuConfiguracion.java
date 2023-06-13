@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,11 @@ public class MenuConfiguracion extends DialogFragment {
     Button botonSalirConf;
     TextView textPlatoRecomend;
     TextView textNumMesa;
+    TextView textIp;
 
     Button botonGuardarSalir;
+
+
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -32,11 +36,23 @@ public class MenuConfiguracion extends DialogFragment {
         botonGuardarSalir=view.findViewById(R.id.botonGuardarSalir);
         textPlatoRecomend=view.findViewById(R.id.textPlatoRecomend);
         textNumMesa=view.findViewById(R.id.textNumMesa);
+        textIp=view.findViewById(R.id.textIp);
+
+        Context context = requireActivity().getApplicationContext();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
+
+        String ip = sharedPreferences.getString("ip", "Asigna un valor");
+        int platoRecomend=sharedPreferences.getInt("platoPromocional", 1);
+        int numMesa=sharedPreferences.getInt("mesaActual", 99);
+
+        textIp.setText(ip);
+        textNumMesa.setText(numMesa+"");
+        textPlatoRecomend.setText(platoRecomend+"");
 
         botonGuardarSalir.setOnClickListener(v -> {
-            Context context = requireActivity().getApplicationContext();
+
             // Obtén una referencia a SharedPreferences
-            SharedPreferences sharedPreferences = context.getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
+
 
             // Obtiene un editor para modificar los valores
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -44,9 +60,11 @@ public class MenuConfiguracion extends DialogFragment {
             // Almacena las variables "platoPromocional" y "mesaActual" con sus respectivos valores
             int platoPromocional = Integer.parseInt(textPlatoRecomend.getText().toString());
             int mesaActual = Integer.parseInt(textNumMesa.getText().toString());
+            String ipActual=textIp.getText().toString();
 
             editor.putInt("platoPromocional", platoPromocional);
             editor.putInt("mesaActual", mesaActual);
+            editor.putString("ip",ipActual);
 
             // Guarda los cambios
             editor.apply();

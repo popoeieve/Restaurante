@@ -50,7 +50,8 @@ public class Principal extends AppCompatActivity {
 
     List<Plato> listaPlatos;
 
-    String url = "http://192.168.0.15/android/registrolista.php";
+    String ip,url;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,12 @@ public class Principal extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
 
-// Obtén los valores de las variables almacenadas
+
+        // Obtén los valores de las variables almacenadas
         int platoRecomendadoInt = sharedPreferences.getInt("platoPromocional", 0);
         String platoRecomendado = String.valueOf(platoRecomendadoInt);
+        ip=sharedPreferences.getString("ip","");//Toma valorNulo si falla al encontrar
+        url = "http://"+ip+"/android/registrolista.php";
 
         botonLlamarCamareroPrincipal=findViewById(R.id.botonLlamarCamareroPrincipal);
         nombreRecomendacion=findViewById(R.id.nombreRecomendacion);
@@ -162,7 +166,6 @@ public class Principal extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(Principal.this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
-
             try {
                 String respuesta= String.valueOf(response);
                 JSONObject jsonObject = new JSONObject(respuesta);
@@ -178,9 +181,11 @@ public class Principal extends AppCompatActivity {
                     listaPlatos.add(plato);
                 }
 
+                /*
                 for (Plato plato : listaPlatos) {
                     Log.d("TAG", "ID: " + plato.get_Id() + ", Nombre: " + plato.get_Nombre() + ", Precio: " + plato.get_Precio());
                 }
+                 */
 
                 for (Plato plato : listaPlatos) {
                     if(plato.get_Id().equals(platoRecomendado)){

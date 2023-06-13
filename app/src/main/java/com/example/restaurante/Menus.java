@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,12 +32,16 @@ public class Menus extends AppCompatActivity {
 
     Button botonIdiomas,botonCarro,botonLlamarCamareroMenus,botonMenuHamburguesa,botonMenuComplemento,botonMenuBebida,botonMenuPostre;
 
-    String url = "http://192.168.0.15/android/registrolista.php";
+    String url,ip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menus);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
+        ip=sharedPreferences.getString("ip","");//Toma valorNulo si falla al encontrar
+        url = "http://"+ip+"/android/registrolista.php";
 
         botonLlamarCamareroMenus=findViewById(R.id.botonLlamarCamareroMenu);
         botonIdiomas=findViewById(R.id.idiomasBtn);
@@ -61,7 +66,7 @@ public class Menus extends AppCompatActivity {
             dialog.show();
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MiArchivoPref", MODE_PRIVATE);
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         botonMenuHamburguesa.setOnClickListener(v -> {
