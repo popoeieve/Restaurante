@@ -91,6 +91,10 @@
             android:background="@drawable/hamburguesasmini"
             android:fontFamily="@font/hotpizza"
             android:text="Hamburguesa"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="40sp" />
 
@@ -101,6 +105,10 @@
             android:background="@drawable/complementosmini"
             android:fontFamily="@font/hotpizza"
             android:text="complementos"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="35sp" />
 
@@ -111,6 +119,10 @@
             android:background="@drawable/refrescosmini"
             android:fontFamily="@font/hotpizza"
             android:text="BEBIDAS"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="40sp" />
 
@@ -121,6 +133,10 @@
             android:background="@drawable/postresmini"
             android:fontFamily="@font/hotpizza"
             android:text="POSTRES"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="40sp" />
 

@@ -147,6 +147,10 @@
             android:background="@drawable/hamburguesasprincipal"
             android:fontFamily="@font/hotpizza"
             android:text="HAMBURGUESAS"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="30sp" />
 
@@ -158,6 +162,10 @@
             android:background="@drawable/complementosprincipal"
             android:fontFamily="@font/hotpizza"
             android:text="COMPLEMENTOS"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="30sp" />
 
@@ -169,6 +177,10 @@
             android:background="@drawable/refrescosprincipal"
             android:fontFamily="@font/hotpizza"
             android:text="BEBIDAS"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="30sp" />
 
@@ -180,6 +192,10 @@
             android:background="@drawable/postresprincipal"
             android:fontFamily="@font/hotpizza"
             android:text="POSTRES"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="20"
             android:textColor="#EAE5E3"
             android:textSize="30sp" />
 

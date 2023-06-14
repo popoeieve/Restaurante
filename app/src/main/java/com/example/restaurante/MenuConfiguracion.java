@@ -38,6 +38,7 @@ public class MenuConfiguracion extends DialogFragment {
         textNumMesa=view.findViewById(R.id.textNumMesa);
         textIp=view.findViewById(R.id.textIp);
 
+        // Obtén una referencia a SharedPreferences y el contexto actual
         Context context = requireActivity().getApplicationContext();
         SharedPreferences sharedPreferences = context.getSharedPreferences("MiArchivoPref", Context.MODE_PRIVATE);
 
@@ -50,9 +51,6 @@ public class MenuConfiguracion extends DialogFragment {
         textPlatoRecomend.setText(platoRecomend+"");
 
         botonGuardarSalir.setOnClickListener(v -> {
-
-            // Obtén una referencia a SharedPreferences
-
 
             // Obtiene un editor para modificar los valores
             SharedPreferences.Editor editor = sharedPreferences.edit();
